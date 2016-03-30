@@ -2,6 +2,8 @@
 
 by Dylan Bowers (for personal usage)
 
+To read: http://zevross.com/blog/2015/01/13/a-new-data-processing-workflow-for-r-dplyr-magrittr-tidyr-ggplot2/
+
 [Index page](https://github.com/enragednuke/R-language-cheatsheet/blob/master/README.md)
 
 ## Libraries
@@ -27,6 +29,15 @@ tb2 <- tb1 %>%
  group_by(word) %>% 
  summarize(total = sum(word_count))
 ```
+
+## Stuff you may want to know from other languages
+
+ * **Joining together a list of strings**
+  *  `paste(vector, collapse='')`
+ * **Summing a list of numbers**
+  * `sum(vector)`
+ * **Standard deviation of a list of numbers**
+  * `sd(vector)` 
 
 ## Method index
 
