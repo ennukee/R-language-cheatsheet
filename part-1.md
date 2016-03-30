@@ -16,7 +16,16 @@ by Dylan Bowers (for personal usage)
  * You can turn most operations from `method(table, args*)` into `table %>% method(args*)`. This is useful in chaining multiple operations together, like the following:
 
 ```R
-tb2 <- tb1 %>% mutate(word=tolower(word) %>% group_by(word) %>% summarize(total = sum(word))
+tb2 <- tb1 %>% mutate(word=tolower(word)) %>% group_by(word) %>% summarize(total = sum(word_count))
+```
+
+ * You can also use the `%>%` syntax to make multiline operations, so for the prior example (both examples are valid):
+
+```R
+tb2 <- tb1 %>% 
+ mutate(word=tolower(word)) %>% 
+ group_by(word) %>% 
+ summarize(total = sum(word_count))
 ```
 
 ## Method index
@@ -36,3 +45,8 @@ tb2 <- tb1 %>% mutate(word=tolower(word) %>% group_by(word) %>% summarize(total 
   * `args` is a list of column names you want to group by (they will group if every `arg` is equal, so you can group rows by `age` and `date` if they had those columnns and it would form pseudo-groups for those with identical `age`s **and** `date`s.
   * For example: `group_by(table, apps, num)`
   * (Generate groups where `apps` and `num` are equal)
+ * Summarizing
+  * `summarize(table, args*)`
+  * `args` is a list of new column assignment statements. The values given to `args` will become the new columns in the table produced by this operation
+  * Disclaimer: This is often used with combination statements like `sum` or `sd` (standard deviation) over numerical columns
+  * For example: `summarize(table,  s=sum(num))` 
