@@ -28,7 +28,7 @@ install.packages('ggplot2')
 ```R
 library(package_name)
 
-So, you'll want this at the top of your scripts:
+# So, you'll want this at the top of your scripts:
 library(dplyr)
 library(tidyr)
 library(ggplot2)
