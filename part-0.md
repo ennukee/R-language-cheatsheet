@@ -70,7 +70,7 @@ An important rule is known as the **recycling rule**. Operating on two vectors o
 aka an alternating sequence!
 </details>
 
-**Be careful with negative indices**. Unlike other languages, negative indices will **not** search from the back of an array. So `array[-1]` will not return the last value of an array. Negative indices will instead return the vector with the item at the absolute value of the index removed. 
+**Be careful with negative indices**. Unlike other languages, negative indices will **not** search from the back of an array. So `array[-1]` will not return the last value of an array. Negative indices will instead return the vector with the item at the absolute value of the index removed.
 
 <details>
 <summary>Code example</summary>
@@ -151,3 +151,9 @@ The result (note that the far left column is a sort of `id` column:
 |*4*|3|'e'|
 
 Take note that the variable names for the vectors become the actual column names (plan ahead!)
+
+When working with a data table, you can look at strictly the columns by doing this: `table[[index]]`, `table[[col_name]]`, or `table[,col_name]`. This will return a vector of the values in that column.
+
+You can slice the columns (i.e. return the column name and the row names in the table) by doing `table[index]` or `table[col_name]`. You can also view multiple columns using a vector, i.e. `table[c(col_name1, col_name2, ...)]`.
+
+To slice specific **rows**, however, you use `table[index,]` or `table[row_name,]`. Similarly, you can pass a vector instead (just lke column slicing). Interestingly enough, you can also use **logical indexing**. It's a pseudo-filter. Example: `table[table$col_name == 'hello',]` or `table[table$count > 5,]`. You can then chain it into another slice/strict slice like this: `table[table$count > 5]$swagamt`. That will return a vector of the `swagamt` values of rows in `table` with a `count` of higher than 5.
