@@ -84,3 +84,46 @@ aka an alternating sequence!
 ```
 </details>
 
+### Matrices
+
+In **R**, there are data types known as **Matrices**. They're a more convenient way of representing 2-dimensional arrays. You can supply a large feed of values and then specify specific column and row values to restrict it. You can then refer to it like a normal 2D array (i.e. `(c[x, y])`).
+
+It is done using the `matrix(data_vector, nrow=int, ncol=int, byrow=TRUE)` method.
+
+<details>
+<summary>Code example</summary>
+```R
+A = matrix(
+  c(1, 2, 3, 4, 5, 6),
+  nrow=2,
+  ncol=3,
+  byrow=TRUE)
+```
+
+Generates the following table:
+
+```
+1 2 3
+4 5 6
+```
+</details>
+
+We can supply the matrix/table with labels using `rownames(matrix)`, `colnames(matrix)`, or `dimnames(matrix)`. The first and second take in a single vector as their equality (you call these using `method = val`, not using another param) while the third takes in a list of column names and row names.
+
+<details>
+<summary>Code example</summary>
+```R
+dimnames(A) = list(
+            c('row1', 'row2'),
+            c('col1', 'col2', 'col3'))
+```
+
+This produces:
+
+||col1|col2|col3|
+|---|---|---|---|
+|**row1**|1|2|3|
+|**row2**|4|5|6|
+</details>
+
+Once you label the column/row names, you can reference values at certain indices using those names (using the example result, `A['row2', 'col1']` = `4`)
