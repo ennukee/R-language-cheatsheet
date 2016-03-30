@@ -1,4 +1,5 @@
 # R cheatsheet
+## Part 1 - elementary syntax and basic dplyr usage
 
 by Dylan Bowers (for personal usage)
 
@@ -6,11 +7,22 @@ To read: http://zevross.com/blog/2015/01/13/a-new-data-processing-workflow-for-r
 
 [Index page](https://github.com/enragednuke/R-language-cheatsheet/blob/master/README.md)
 
-## Libraries used
+## Generating a table (custom values, not from a file/SQL)
 
- * dplyr
- * ggplot2 (next section)
- * tidyr (future sections)
+```R
+tbl <- data.frame(col1 = c(1,2,4,3), col2 = c('a','c','d','e'))
+tbl
+```
+The result (note that the far left column is a sort of `id` column:
+
+||col1|col2|
+|---|---|---|
+|*1*|1|'a'|
+|*2*|2|'c'|
+|*3*|4|'d'|
+|*4*|3|'e'|
+
+Take note that the variable names for the vectors become the actual column names (plan ahead!)
 
 ## Syntactical tips
 
@@ -38,7 +50,7 @@ tb2 <- tb1 %>%
  * **Standard deviation of a list of numbers**
   * `sd(vector)` 
 
-## Method index
+## Basic dplyr method index
 
 ### Basic Mutations
 Modifications to a table (i.e. multiply everything by 5, etc
