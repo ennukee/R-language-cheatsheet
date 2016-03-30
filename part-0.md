@@ -1,5 +1,6 @@
-# R cheatsheet
 # Absolutely Basics of R
+
+[Index page](https://github.com/enragednuke/R-language-cheatsheet/blob/master/README.md)
 
 ## Installing packages
 
