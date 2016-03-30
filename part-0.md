@@ -128,3 +128,26 @@ This produces:
 </details>
 
 Once you label the column/row names, you can reference values at certain indices using those names (using the example result, `A['row2', 'col1']` = `4`)
+
+You can combine matrices using `cbind(m1, m2)` (if equal rows) or `rbind(m1, m2)` (if equal columns). Backwards, but it makes sense because `cbind` binds by attaching `m2` to the right side of `m1`. This is only possible if they have equal row counts. Same applies for `rbind` which attaching `m2` to the bottom of `m1`.
+
+You can also output the contents as a single vector using `c(matrix)`
+
+## Data Frame
+
+You can generate a table using `data.frame(args*)` where `args*` represents a series of `col=vector` arguments.
+
+```R
+tbl <- data.frame(col1 = c(1,2,4,3), col2 = c('a','c','d','e'))
+tbl
+```
+The result (note that the far left column is a sort of `id` column:
+
+||col1|col2|
+|---|---|---|
+|*1*|1|'a'|
+|*2*|2|'c'|
+|*3*|4|'d'|
+|*4*|3|'e'|
+
+Take note that the variable names for the vectors become the actual column names (plan ahead!)
