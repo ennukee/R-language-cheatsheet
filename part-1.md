@@ -6,11 +6,11 @@ To read: http://zevross.com/blog/2015/01/13/a-new-data-processing-workflow-for-r
 
 [Index page](https://github.com/enragednuke/R-language-cheatsheet/blob/master/README.md)
 
-## Libraries
+## Libraries used
 
  * dplyr
- * ggplot2
- * tidyr
+ * ggplot2 (next section)
+ * tidyr (future sections)
 
 ## Syntactical tips
 
@@ -40,23 +40,36 @@ tb2 <- tb1 %>%
 
 ## Method index
 
- * Basic Mutations
-  *  `mutate(table, args*)`
-  *  `args` is any number of `key-function` re-assignment arguments
-  *  For example (in a table with a column 'apps' and 'num'): `mutate(table, apps=tolower(apps), num=num*2)` 
-  *  (convert all `apps` values to lowercase and double their `num` values
- * Filtrations
-  * `filter(table, args*)`
-  * `args` is any number of `key-function` predicate arguments
-  * For example (in a table with a column 'apps' and 'num'): `mutate(table, apps==tolower(apps), num==2)`
-  * (only keep rows where `apps` is all lowercase and its `num` value is 2)
- * Basic Grouping
-  * `group_by(table, args*)`
-  * `args` is a list of column names you want to group by (they will group if every `arg` is equal, so you can group rows by `age` and `date` if they had those columnns and it would form pseudo-groups for those with identical `age`s **and** `date`s.
-  * For example: `group_by(table, apps, num)`
-  * (Generate groups where `apps` and `num` are equal)
- * Summarizing
-  * `summarize(table, args*)`
-  * `args` is a list of new column assignment statements. The values given to `args` will become the new columns in the table produced by this operation
-  * Disclaimer: This is often used with combination statements like `sum` or `sd` (standard deviation) over numerical columns
-  * For example: `summarize(table,  s=sum(num))` 
+### Basic Mutations
+Modifications to a table (i.e. multiply everything by 5, etc
+  *  **Usage**: `mutate(table, args*)`
+  *  **Params** 
+   *  `args` is any number of `key-function` re-assignment arguments
+
+For example (in a table with a column 'apps' and 'num'): `mutate(table, apps=tolower(apps), num=num*2)` (convert all `apps` values to lowercase and double their `num` values
+
+### Filtrations
+Not much to say about this, very straight forward
+  * **Usage**: `filter(table, args*)`
+  * **Params**
+   * `args` is any number of `key-function` predicate arguments
+
+For example (in a table with a column 'apps' and 'num'): `mutate(table, apps==tolower(apps), num==2)` (only keep rows where `apps` is all lowercase and its `num` value is 2)
+
+### Basic Grouping
+Used to generate sub-groups to then be iterated on by another operation (i.e. if you group by `word` then `summarize` on `total = sum(word_count)` right after, it will maintain the `word` column)
+  * **Usage**: `group_by(table, args*)`
+  * **Params** 
+   * `args` is a list of column names you want to group by (they will group if every `arg` is equal, so you can group rows by `age` and `date` if they had those columnns and it would form pseudo-groups for those with identical `age`s **and** `date`s.
+
+For example: `group_by(table, apps, num)` (Generate groups where `apps` and `num` are equal)
+ 
+### Summarizing
+Used for literally **summarizing** a table.
+  * **Usage**: `summarize(table, args*)`
+  * **Params** 
+   * `args` is a list of new column assignment statements. The values given to `args` will become the new columns in the table produced by this operation
+
+Disclaimer: This is often used with combination statements like `sum` or `sd` (standard deviation) over numerical columns
+
+For example: `summarize(table,  s=sum(num))` 
