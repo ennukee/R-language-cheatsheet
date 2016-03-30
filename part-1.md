@@ -11,7 +11,6 @@ To read: http://zevross.com/blog/2015/01/13/a-new-data-processing-workflow-for-r
  * dplyr
  * ggplot2
  * tidyr
- * bigrquery (for Google BigQuery queries)
 
 ## Syntactical tips
 
