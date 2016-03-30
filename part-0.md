@@ -42,7 +42,8 @@ You should be familiar with the syntax: `c(args*)` (used **very** often), `is.cl
 
 Note: R treats the class `character` the same as `string`. So `is.character('abc')` will yield `TRUE`.
 
-Conditionals:
+<details>
+<summary>Conditionals:</summary>
 
 |Symbol|Meaning|
 |---|---|
@@ -50,9 +51,11 @@ Conditionals:
 |`&`|AND|
 |`!`|NOT|
 
+</details>
+
 ### Vector logic
 
-In R, the objects known as **Vectors** are basically just arrays from any other language in existence.
+In R, the objects known as **Vectors** are basically just arrays from any other language in existence. **VERY IMPORTANT NOTE: Indices in R start at ONE, NOT ZERO!**
 
 You can generate them using the syntax `c(args*)` which makes an array with contents `args*` so for example: `c(1,2,3)` = `[1, 2, 3]`. You can also use the `c(args*)` method to concatenate two vectors together, so `c(c(1,2,3), c(3,4,5))` = `[1, 2, 3, 3, 4, 5]`.
 
@@ -64,5 +67,20 @@ An important rule is known as the **recycling rule**. Operating on two vectors o
 <summary>**Nifty trick**: What will `c(1, -1) * c(1, 2, 4, 8, 16, 32)` create?</summary>
 `[1, -2, 4, -8, 16, -32]`
 aka an alternating sequence!
+</details>
+
+**Be careful with negative indices**. Unlike other languages, negative indices will **not** search from the back of an array. So `array[-1]` will not return the last value of an array. Negative indices will instead return the vector with the item at the absolute value of the index removed. 
+
+<details>
+<summary>Code example</summary>
+```R
+> a = c(1, 2, 3, 4)
+> a
+[1, 2, 3, 4]
+> a[-1]
+[2, 3, 4]
+> a[-3]
+[1, 2, 4]
+```
 </details>
 
