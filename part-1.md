@@ -1,5 +1,5 @@
 # R cheatsheet
-## Part 1 - elementary syntax and basic dplyr usage
+## Part 1 - basic dplyr usage
 
 by Dylan Bowers (for personal usage)
 
