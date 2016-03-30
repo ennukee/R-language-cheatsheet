@@ -15,14 +15,31 @@ To read: http://zevross.com/blog/2015/01/13/a-new-data-processing-workflow-for-r
 tb2 <- tb1 %>% mutate(word=tolower(word)) %>% group_by(word) %>% summarize(total = sum(word_count))
 ```
 
- * You can also use the `%>%` syntax to make multiline operations, so for the prior example (both examples are valid):
+ * You can also use the `%>%` syntax (known as 'piping' introduced in `magrittr` which is a library build into `dplyr`) to make multiline operations, so for the prior example (both examples are valid):
 
+<details>
+<summary>Code example></summary>
 ```R
-tb2 <- tb1 %>% 
- mutate(word=tolower(word)) %>% 
- group_by(word) %>% 
+tb2 <- tb1 %>%
+ mutate(word=tolower(word)) %>%
+ group_by(word) %>%
  summarize(total = sum(word_count))
 ```
+</details>
+
+You can also use the `%<>%` operation to simplify this further if you are assigning to the same table you're operating on, so for example:
+
+<details>
+<summary>Code example</summary>
+```R
+tb1 <- filter(tb1, word=='henry')
+# OR
+tb1 <- tb1 %>% filter(word=='henry')
+
+# Can be rewritten as this
+tb1 %<>% filter(word=='henry')
+```
+</details>
 
 ## Stuff you may want to know from other languages
 
@@ -31,14 +48,14 @@ tb2 <- tb1 %>%
  * **Summing a list of numbers**
   * `sum(vector)`
  * **Standard deviation of a list of numbers**
-  * `sd(vector)` 
+  * `sd(vector)`
 
 ## Basic dplyr method index
 
 ### Basic Mutations
 Modifications to a table (i.e. multiply everything by 5, etc
   *  **Usage**: `mutate(table, args*)`
-  *  **Params** 
+  *  **Params**
    *  `args` is any number of `key-function` re-assignment arguments
 
 For example (in a table with a column 'apps' and 'num'): `mutate(table, apps=tolower(apps), num=num*2)` (convert all `apps` values to lowercase and double their `num` values
@@ -54,17 +71,17 @@ For example (in a table with a column 'apps' and 'num'): `mutate(table, apps==to
 ### Basic Grouping
 Used to generate sub-groups to then be iterated on by another operation (i.e. if you group by `word` then `summarize` on `total = sum(word_count)` right after, it will maintain the `word` column)
   * **Usage**: `group_by(table, args*)`
-  * **Params** 
+  * **Params**
    * `args` is a list of column names you want to group by (they will group if every `arg` is equal, so you can group rows by `age` and `date` if they had those columnns and it would form pseudo-groups for those with identical `age`s **and** `date`s.
 
 For example: `group_by(table, apps, num)` (Generate groups where `apps` and `num` are equal)
- 
+
 ### Summarizing
 Used for literally **summarizing** a table.
   * **Usage**: `summarize(table, args*)`
-  * **Params** 
+  * **Params**
    * `args` is a list of new column assignment statements. The values given to `args` will become the new columns in the table produced by this operation
 
 Disclaimer: This is often used with combination statements like `sum` or `sd` (standard deviation) over numerical columns
 
-For example: `summarize(table,  s=sum(num))` 
+For example: `summarize(table,  s=sum(num))`
