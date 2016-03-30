@@ -7,23 +7,6 @@ To read: http://zevross.com/blog/2015/01/13/a-new-data-processing-workflow-for-r
 
 [Index page](https://github.com/enragednuke/R-language-cheatsheet/blob/master/README.md)
 
-## Generating a table (custom values, not from a file/SQL)
-
-```R
-tbl <- data.frame(col1 = c(1,2,4,3), col2 = c('a','c','d','e'))
-tbl
-```
-The result (note that the far left column is a sort of `id` column:
-
-||col1|col2|
-|---|---|---|
-|*1*|1|'a'|
-|*2*|2|'c'|
-|*3*|4|'d'|
-|*4*|3|'e'|
-
-Take note that the variable names for the vectors become the actual column names (plan ahead!)
-
 ## Syntactical tips
 
  * You can turn most operations from `method(table, args*)` into `table %>% method(args*)`. This is useful in chaining multiple operations together, like the following:
