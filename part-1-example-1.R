@@ -1,6 +1,6 @@
-# -------------------------------------------- #
-# Concept: Working with basic group operations #
-# -------------------------------------------- #
+# ---------------------------------------------- #
+# Concept: Working with summarization operations #
+# ---------------------------------------------- #
 
 # You should be capable of writing this code on your own before the competition
 
@@ -14,7 +14,7 @@ print(tbl1.freq)
 
 # Import data to a data.frame for dplyr operations (note the column names)
 dta1 = data.frame(tbl1.freq) 
-printt(dta1)
+print(dta1)
 
 # Apply basic summarizaton operations
 dta1 <- dta1 %>% summarize(sum=sum(Freq), standard_dev=sd(Freq), average=mean(Freq))
