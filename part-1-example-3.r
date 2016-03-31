@@ -9,6 +9,10 @@
 # you compile the script!                                    #
 # ---------------------------------------------------------- #
 
+# You do not need to know how to write everything here by heart, 
+# but you should understand how each of the parses work so you
+# could suggest logic flow like this during development
+
 library(dplyr)
 
 author = c('John Smith', 'Dans Game', 'Kappa Ross', 'Alma Mater', 'Fak Yu', 'Alma Mater', 'Fak Yu', 'John Smith', 'Dans Game', 'Kappa Ross', 'Alma Mater', 'Fak Yu')
@@ -24,6 +28,27 @@ data_set_1 = data %>%
   group_by(author) %>%
   summarize(average_rating=mean(rating), average_sold=mean(sold))
 
+# Calculate each author's best and worst rating
 data_set_2 = data %>%
   group_by(author) %>%
   summarize(best_rating=max(rating), worst_rating=min(rating))
+
+# In a given year, calculate the number of books released, 
+# the number of books sold, the average books sold, and
+# the average rating of the books
+data_set_3 = data %>%
+  group_by(year) %>%
+  summarize(num_books=n(), books_sold=sum(sold), avg_books_sold=mean(sold), average_rating=mean(rating))
+
+# In a given year, calculate an author's number of released,
+# books sold, and average rating of those books
+data_set_4 = data %>%
+  group_by(author, year) %>%
+  summarize(num_books=n(), books_sold=sum(sold), avg_rating=mean(rating))
+
+# Find authors who have a total book sold count of over 100
+# and an average rating of more then 5 (ELITE WRITERS!11!!)
+data_set_5 = data %>%
+  group_by(author) %>%
+  summarize(books_sold=sum(sold), avg_rating=mean(rating)) %>%
+  filter(books_sold>100, avg_rating>5)
