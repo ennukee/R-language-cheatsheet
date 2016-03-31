@@ -3,7 +3,7 @@
 
 by Dylan Bowers (for personal usage)
 
-To read: http://zevross.com/blog/2015/01/13/a-new-data-processing-workflow-for-r-dplyr-magrittr-tidyr-ggplot2/
+This page is heavily based off of the `dplyr` section of this article (feel free to read it for more info): http://zevross.com/blog/2015/01/13/a-new-data-processing-workflow-for-r-dplyr-magrittr-tidyr-ggplot2/
 
 [Index page](https://github.com/enragednuke/R-language-cheatsheet/blob/master/README.md)
 
@@ -51,6 +51,8 @@ tb1 %<>% filter(word=='henry')
   * `sum(vector)`
  * **Standard deviation of a list of numbers**
   * `sd(vector)`
+ * **Measuring the length of a string**
+  * `nchar(character)` (note: you can feed something like `nchar(col)>5` into a `filter` call)
 
 ## Basic dplyr method index
 
