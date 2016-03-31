@@ -2,8 +2,7 @@
 # Concept: Utilizing groups to get effective data output #
 # ------------------------------------------------------ #
 
-import(dplyr)
-import(tidyr)
+library(dplyr)
 
 # We will be setting up a multi-dimensional data.frame, so here are our column and content sets
 name = c('Dylan', 'Joe', 'Chris', 'Nikolai', 'Rahaun', 'Tony')
