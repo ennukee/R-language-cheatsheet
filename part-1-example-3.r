@@ -2,6 +2,13 @@
 # Concept: Advanced multi-level usage of dplyr methods #
 # ---------------------------------------------------- #
 
+# -------------------------- NOTE -------------------------- #
+# Due to the sheer amount of data parsing here, if you want  #
+# to view any of the results (i.e. data_set_1), you can type #
+# the variable name (i.e. data_set_1) into the console after #
+# you compile the script!                                    #
+# ---------------------------------------------------------- #
+
 library(dplyr)
 
 author = c('John Smith', 'Dans Game', 'Kappa Ross', 'Alma Mater', 'Fak Yu', 'Alma Mater', 'Fak Yu', 'John Smith', 'Dans Game', 'Kappa Ross', 'Alma Mater', 'Fak Yu')
@@ -12,8 +19,11 @@ rating = c(2.3, 5, 5.2, 5, 5.1, 6, 2.1, 4, 6, 7, 4, 9)
 
 data = data.frame(author, book, year, sold, rating)
 
+# Calculate each author's average rating and average sold
 data_set_1 = data %>%
   group_by(author) %>%
   summarize(average_rating=mean(rating), average_sold=mean(sold))
 
-print(data_set_1)
+data_set_2 = data %>%
+  group_by(author) %>%
+  summarize(best_rating=max(rating), worst_rating=min(rating))
