@@ -9,10 +9,6 @@
 # you compile the script!                                    #
 # ---------------------------------------------------------- #
 
-# You do not need to know how to write everything here by heart, 
-# but you should understand how each of the parses work so you
-# could suggest logic flow like this during development
-
 library(dplyr)
 
 author = c('John Smith', 'Dans Game', 'Kappa Ross', 'Alma Mater', 'Fak Yu', 'Alma Mater', 'Fak Yu', 'John Smith', 'Dans Game', 'Kappa Ross', 'Alma Mater', 'Fak Yu')
@@ -23,10 +19,13 @@ rating = c(2.3, 5, 5.2, 5, 5.1, 6, 2.1, 4, 6, 7, 4, 9)
 
 data = data.frame(author, book, year, sold, rating)
 
-# Calculate each author's average rating and average sold
+# Calculate each author's average rating and average sold (as an int), 
+# then sort it by their ratings
 data_set_1 = data %>%
   group_by(author) %>%
-  summarize(average_rating=mean(rating), average_sold=mean(sold))
+  summarize(average_rating=mean(rating), average_sold=mean(sold)) %>%
+  mutate(average_sold=as.integer(average_sold)) %>%
+  arrange(desc(average_rating))
 
 # Calculate each author's best and worst rating
 data_set_2 = data %>%
