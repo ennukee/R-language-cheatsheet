@@ -44,7 +44,9 @@ tb1 %<>% filter(word=='henry')
 ## Stuff you may want to know from other languages
 
  * **Joining together a list of strings**
-  *  `paste(vector, collapse='')`
+  *  `paste(vector, collapse=char)`
+   * So to join `c(1,2,3)` to `123` is `paste(c(1,2,3), collapse='')`
+   * Or perhaps a CSV? `paste(c('a', 'c', 'e'), collapse=', ')`
  * **Summing a list of numbers**
   * `sum(vector)`
  * **Standard deviation of a list of numbers**
