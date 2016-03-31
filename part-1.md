@@ -52,6 +52,14 @@ tb1 %<>% filter(word=='henry')
 
 ## Basic dplyr method index
 
+### Sorting 
+Sorts data based on a column
+ * **Usage**: `arrange(table, args*)`
+ * **Params**
+  * `args` is any number of methods of columns to sort by. Each column defaults to ascending order (low to high). To specify descending order, do `desc(column)` instead. Will prioritize the earlier columns you put in the list.
+
+For example: `tbl %<>% arrange(desc(num))` will sort with the rows that contain the highest value of `num` at the top.
+
 ### Basic Mutations
 Modifications to a table (i.e. multiply everything by 5, etc
   *  **Usage**: `mutate(table, args*)`
