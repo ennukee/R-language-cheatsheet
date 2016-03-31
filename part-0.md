@@ -2,6 +2,12 @@
 
 [Index page](https://github.com/enragednuke/R-language-cheatsheet/blob/master/README.md)
 
+## R and your IDE
+
+[Download R Language here](https://cran.r-project.org/bin/windows/base/)
+
+[Download RStudio here](http://www.rstudio.com/products/rstudio/download/)
+
 ## Installing packages
 
 ```R
@@ -16,7 +22,7 @@ You should also be able to do this:
 install.packages('package_name')
 ```
 
-So you should do this first before anything else:
+So you should do this first before anything else (in the R console, **not** the script):
 
 ```R
 install.packages('dplyr')
