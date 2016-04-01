@@ -29,14 +29,14 @@ You may notice a weird pattern that `ggplot` generates its plots: It combines a 
 
 This will be a list of small snippets to help do basic graphing
 
- * **Edit X/Y-axis graph labels**
-  * `labs(x=character, y=character, title=character)`
+* **Edit X/Y-axis graph labels**
+ * `labs(x=character, y=character, title=character)`
 * **Removing labeling/ticks on axes**
-  * `theme(axis.ticks.y = element_blank(), axis.text.y = element_blank())`
-  * (note: you can `.x` for x-axis)
+ * `theme(axis.ticks.y = element_blank(), axis.text.y = element_blank())`
+ * (note: you can `.x` for x-axis)
 * Rotate/Change size of 'tick label' text
-  * `theme(axis.text.x=element_text(angle=int, size=int, vjust=dbl))`
-  * (note: this uses the `element_text` method mentioned below)
+ * `theme(axis.text.x=element_text(angle=int, size=int, vjust=dbl))`
+ * (note: this uses the `element_text` method mentioned below)
 
 ## Subsidiary Method Index (SMI)
 
