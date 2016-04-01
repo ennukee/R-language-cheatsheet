@@ -1,7 +1,9 @@
 # R language cheatsheet
 ## Part 3 - Givin' the user something nice w/ ggplot2
 
-This page is heavily based off of the ggplot2 section of this article (feel free to read it for more info): http://zevross.com/blog/2015/01/13/a-new-data-processing-workflow-for-r-dplyr-magrittr-tidyr-ggplot2/
+This page is **very heavily** based off of the ggplot2 section of this article (feel free to read it for more info): http://zevross.com/blog/2015/01/13/a-new-data-processing-workflow-for-r-dplyr-magrittr-tidyr-ggplot2/
+
+If you want to see visual representations of what each of the subsidiary methods / code snippets do, see that link (it has images)
 
 [Index page](https://github.com/enragednuke/R-language-cheatsheet/blob/master/README.md)
 
@@ -34,7 +36,7 @@ This will be a list of small snippets to help do basic graphing
 * **Removing labeling/ticks on axes**
  * `theme(axis.ticks.y = element_blank(), axis.text.y = element_blank())`
  * (note: you can `.x` for x-axis)
-* Rotate/Change size of 'tick label' text
+* **Rotate/change size of 'tick label' text**
  * `theme(axis.text.x=element_text(angle=int, size=int, vjust=dbl))`
  * (note: this uses the `element_text` method mentioned below)
 
