@@ -52,7 +52,9 @@ tb1 %<>% filter(word=='henry')
  * **Standard deviation of a list of numbers**
   * `sd(vector)`
  * **Measuring the length of a string**
-  * `nchar(character)` (note: you can feed something like `nchar(col)>5` into a `filter` call)
+  * `nchar(character)` (note: you can feed something like `nchar(col)>5` into a `filter` call)\
+ * **Checking if a string is in a vector**
+  * `char_variable%in%vector` 
 
 ## Basic dplyr method index
 
@@ -97,3 +99,10 @@ Used for literally **summarizing** a table.
 Disclaimer: This is often used with combination statements like `sum` or `sd` (standard deviation) over numerical columns
 
 For example: `summarize(table,  s=sum(num))`
+
+### Ignoring columns
+Used to return the same table with a column removed
+ * **Usage**: `select(table, column)`
+ * **Params**
+  * `column` is the column to remove 
+
