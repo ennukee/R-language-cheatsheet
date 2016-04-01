@@ -25,3 +25,6 @@ ggplot(data, aes(x_col, y_col))+geom_point(color=COLOR)
 
 You may notice a weird pattern that `ggplot` generates its plots: It combines a series of additional `ggplot` methods as a 'concatenation' (adding them with `+`). This is consistent throughout the generation of ggplots.
 
+### Subsidiary Method Index (SMI)
+
+
