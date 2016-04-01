@@ -55,6 +55,10 @@ tb1 %<>% filter(word=='henry')
   * `nchar(character)` (note: you can feed something like `nchar(col)>5` into a `filter` call)\
  * **Checking if a string is in a vector**
   * `char_variable%in%vector` 
+ * **Subset-ing a vector**
+  * `vector[start:end]`
+  * Note: This is inclusive, it will include the start and end indices in the result
+  * Also remember the first index in a vector is **1**.
 
 ## Basic dplyr method index
 
