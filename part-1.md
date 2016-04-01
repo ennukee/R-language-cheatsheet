@@ -3,6 +3,8 @@
 
 by Dylan Bowers (for personal usage)
 
+#### NOTE: You can type `?method` in the R console on RStudio to open a web page containing detailed information about `method`. It's basically a free information bank, so use it.
+
 This page is heavily based off of the `dplyr` section of this article (feel free to read it for more info): http://zevross.com/blog/2015/01/13/a-new-data-processing-workflow-for-r-dplyr-magrittr-tidyr-ggplot2/
 
 [Index page](https://github.com/enragednuke/R-language-cheatsheet/blob/master/README.md)
